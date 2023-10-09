@@ -1,13 +1,12 @@
 <script setup lang="ts">
   import.meta.env.VITE_BUCKET_URL_THUMBNAILS
+  import { storeToRefs } from 'pinia'
+  import { useGalleryStore } from '../store/galleryStore'
 
   const VITE_BUCKET_URL_IMAGES = import.meta.env.VITE_BUCKET_URL_IMAGES
-
-  const selectedImage = useSelectedImage()
-
-  function handleImageReset() {
-    selectedImage.value = null
-  }
+  const galleryStore = useGalleryStore()
+  const { selectedImage } = storeToRefs(galleryStore)
+  const { handleImageReset } = galleryStore
 </script>
 
 <template>

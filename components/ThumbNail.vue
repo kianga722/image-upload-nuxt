@@ -4,10 +4,12 @@
   ])
 
   import.meta.env.VITE_BUCKET_URL_THUMBNAILS
+  import { storeToRefs } from 'pinia'
+  import { useGalleryStore } from '../store/galleryStore'
 
   const VITE_BUCKET_URL_THUMBNAILS = import.meta.env.VITE_BUCKET_URL_THUMBNAILS
-
-  const selectedImage = useSelectedImage()
+  const galleryStore = useGalleryStore()
+  const { selectedImage } = storeToRefs(galleryStore)
 
   function handleThumbnailClick(thumbnail: string) {
     const fullImage = thumbnail.replace('resized-', '');

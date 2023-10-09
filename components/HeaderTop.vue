@@ -1,11 +1,9 @@
 <script setup lang="ts">
+  import { useUploadStore } from '../store/uploadStore'
   import { APP_TITLE } from '../utils/CONSTANTS'
 
-  const isUploadModalOpen = useIsUploadModalOpen()
-
-  function handleModalOpen() {
-    isUploadModalOpen.value = true
-  }
+  const uploadStore = useUploadStore()
+  const { handleModalOpen } = uploadStore
 </script>
 
 <template>

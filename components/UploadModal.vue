@@ -1,5 +1,8 @@
 <script setup lang="ts">
   import { MAX_FILE_SIZE_BYTES } from '../utils/CONSTANTS'
+  import { ref, computed } from 'vue'
+  import { storeToRefs } from 'pinia'
+  import { useUploadStore } from '../store/uploadStore'
 
   import LoaderIcon from './LoaderIcon.vue'
 
@@ -16,12 +19,9 @@
     };
   };
 
-  const isUploadModalOpen = useIsUploadModalOpen()
-
-  function handleModalClose() {
-    isUploadModalOpen.value = false
-  }
-
+  const uploadStore = useUploadStore()
+  const { isUploadModalOpen } = storeToRefs(uploadStore)
+  const { handleModalClose } = uploadStore
 
   const isLoading = ref(false)
 

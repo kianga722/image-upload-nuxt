@@ -4,5 +4,11 @@
   "compilerOptions": {
     "types": ["node", "jsdom", "vitest/globals"],
     "allowJs": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "./cypress.config.ts",
+    "cypress",
+    "**/*.cy.tsx"
+  ]
 }
